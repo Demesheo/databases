@@ -2,12 +2,29 @@ CREATE DATABASE chat;
 
 USE chat;
 
-CREATE TABLE messages (
-  /* Describe your table here.*/
+CREATE TABLE `UserNames` (
+	`User ID` INT NOT NULL AUTO_INCREMENT,
+	`Names` VARCHAR(255) NOT NULL,
+	PRIMARY KEY (`User ID`)
 );
 
-/* Create other tables and define schemas for them here! */
+CREATE TABLE `Messages` (
+	`Message ID` INT NOT NULL AUTO_INCREMENT,
+	`User ID` INT NOT NULL,
+	`Message Text` VARCHAR(255) NOT NULL,
+	`Chatroom ID` INT NOT NULL,
+	PRIMARY KEY (`Message ID`)
+);
 
+CREATE TABLE `Chatroom` (
+	`Chatroom ID` INT NOT NULL AUTO_INCREMENT,
+	`Chatroom Name` VARCHAR(255) NOT NULL,
+	PRIMARY KEY (`Chatroom ID`)
+);
+
+ALTER TABLE `Messages` ADD CONSTRAINT `Messages_fk0` FOREIGN KEY (`User ID`) REFERENCES `UserNames`(`User ID`);
+
+ALTER TABLE `Messages` ADD CONSTRAINT `Messages_fk1` FOREIGN KEY (`Chatroom ID`) REFERENCES `Chatroom`(`Chatroom ID`);
 
 
 
