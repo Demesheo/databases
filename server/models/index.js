@@ -25,7 +25,7 @@ module.exports = {
 
     post: function (data, cb) {
 
-    	db.dbConnection.query('INSERT INTO Messages VALUES (3, 1, "'+data+'", 1)', function(err, rows, fields) {
+    	db.dbConnection.query('INSERT INTO Messages ("Message Text") VALUES ("'+data+'")', function(err, rows, fields) {
     		if (!err){
     			console.log('The POST ', rows);
     			cb();	

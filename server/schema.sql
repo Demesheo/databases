@@ -10,10 +10,10 @@ CREATE TABLE `UserNames` (
 );
 
 CREATE TABLE `Messages` (
-	`Message ID` INT NULL AUTO_INCREMENT,
-	`User ID` INT NULL,
+	`MessageID` INT NULL AUTO_INCREMENT,
+	`UserID` INT NULL,
 	`Message Text` VARCHAR(255) NULL,
-	`Chatroom ID` INT  NULL,
+	`ChatroomID` INT  NULL,
 	PRIMARY KEY (`Message ID`)
 );
 
