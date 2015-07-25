@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS chat;
 CREATE DATABASE chat;
 
 USE chat;
@@ -22,9 +23,9 @@ CREATE TABLE `Chatroom` (
 	PRIMARY KEY (`Chatroom ID`)
 );
 
-ALTER TABLE `Messages` ADD CONSTRAINT `Messages_fk0` FOREIGN KEY (`User ID`) REFERENCES `UserNames`(`User ID`);
+-- ALTER TABLE `Messages` ADD CONSTRAINT `Messages_fk0` FOREIGN KEY (`User ID`) REFERENCES `UserNames`(`User ID`);
 
-ALTER TABLE `Messages` ADD CONSTRAINT `Messages_fk1` FOREIGN KEY (`Chatroom ID`) REFERENCES `Chatroom`(`Chatroom ID`);
+-- ALTER TABLE `Messages` ADD CONSTRAINT `Messages_fk1` FOREIGN KEY (`Chatroom ID`) REFERENCES `Chatroom`(`Chatroom ID`);
 
 
 
