@@ -4,23 +4,43 @@ var db = require('../db');
 
 
 module.exports = {
-  messages: {
-    get: function () {
+	messages: {
+		get: function (req, res) {
     	//get the data from the database
+
     	console.log('inside model');
-    	db.
+    	console.log('req', req.body);
+    	console.log('res', res.body);
+
+    	db.dbConnection.query('SELECT * from Messages', function(err, rows, fields) {
+    		if (!err)
+    			console.log('The GET: ', rows);
+    		else
+    			console.log('Error while performing Query.');
+    	});
+
+
 
     }, // a function which produces all the messages
 
-    post: function (req, res) {
+    post: function (data, cb) {
 
+    	db.dbConnection.query('INSERT INTO Messages VALUES (3, 1, "'+data+'", 1)', function(err, rows, fields) {
+    		if (!err){
+    			console.log('The POST ', rows);
+    			cb();	
+    		} else {
+    			console.log('Error while performing Query.', err);
+    		}
+    		}
+    	);
     } // a function which can be used to insert a message into the database
-  },
+},
 
-  users: {
+users: {
     // Ditto as above.
     get: function () {},
     post: function () {}
-  }
+}
 };
 
